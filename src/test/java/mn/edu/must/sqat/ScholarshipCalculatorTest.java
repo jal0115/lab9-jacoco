@@ -119,4 +119,17 @@ class ScholarshipCalculatorTest {
     void scholarship_gpa2point5_returnsZero() {
         assertEquals(0, calc.scholarship(2.5, 20, false));
     }
+
+    // ---- loop boundary: 0 / 1 / 2+ iterations ----
+    // 0 iterations: gpa_emptyArray_throwsIllegalArgument, gpa_nullArray_throwsIllegalArgument
+
+    @Test
+    void gpa_singleScore_returnsFour() {
+        assertEquals(4.0, calc.gpa(new double[]{95}), 0.001);
+    }
+
+    @Test
+    void gpa_multipleScores_returnsTwoPointFive() {
+        assertEquals(2.5, calc.gpa(new double[]{95, 85, 75, 65}), 0.001);
+    }
 }
