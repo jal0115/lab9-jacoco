@@ -33,3 +33,9 @@
 ![CFG](cfg.png)
 
 Branch ба Line хамралтыг 100% хүргэхэд нийт **21 тест** шаардагдсан (A-ийн 5 + B-д нэмсэн 16): `results/mvn-verify-B.txt` дахь `Tests run: 21, Failures: 0`. `results/jacoco-B.csv`-д **BRANCH_MISSED = 0**, **LINE_MISSED = 0** (Branch 41/41, Line 25/25).
+
+## C: Давталтын заагийн тестүүд
+
+`gpa()`-ийн давталтад 0 / 1 / 2+ дүрмийг хэрэгжүүлсэн: 0 удаа → `gpa_emptyArray_throwsIllegalArgument`, `gpa_nullArray_throwsIllegalArgument` (assertThrows); 1 удаа → `gpa_singleScore_returnsFour`; 2+ удаа → `gpa_multipleScores_returnsTwoPointFive`.
+
+Эдгээр тест хамралтыг өсгөөгүй (Branch, Line аль хэдийн 100%) боловч хэрэгтэй хэвээр: хамралт нь мөр, салаа "хүрсэн эсэх"-ийг л хэмждэг, давталтын тоо буруу байх алдааг (жишээ нь индексийг 1-ээс эхлүүлэх, сүүлийн элементийг алгасах, `length`-ийг буруу хуваах) илрүүлдэггүй. Нэг дүнтэй (`[95]`), олон дүнтэй (`[95,85,75,65]`) тест нь голчийн тооцоо тус бүрд зөв ажиллаж байгааг баталгаажуулдаг.
